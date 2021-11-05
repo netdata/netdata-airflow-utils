@@ -1,0 +1,10 @@
+{
+  "netdata_airflow_utils": {
+    "Overview": "/",
+    "Core": "core.html",
+    "Airflow": "airflow.html",
+    "BigQuery": "bigquery.html",
+    "DataHub": "datahub.html",
+    "Utils": "utils.html"
+  }
+}

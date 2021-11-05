@@ -4,11 +4,16 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+apache-airflow-providers-google = "*"
 
 [dev-packages]
 nbdev = "*"
 nbconvert = "*"
 jupyter-client = "==6.1.12"
+twine = "*"
 
 [requires]
 python_version = "3.8"
+
+[packages.acryl-datahub]
+extras = [ "airflow",]
