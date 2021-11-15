@@ -1,27 +1,15 @@
-# Project name here
-> Summary description here.
+# Netdata Airflow Utils
+> Netdata utils, builder and wrapper functions for airflow.
 
-
-This file will become your README and also the index of your documentation.
 
 ## Install
 
-`pip install your_project_name`
+```shell
+pip install netdata_airflow_utils
+```
 
 ## How to use
 
-Fill me in please! Don't forget code examples:
-
 ```python
-say_hello()
+from netdata_airflow_utils.bigquery import *
 ```
-
-    hello
-
-
-
-
-
-    'hello'
-
-

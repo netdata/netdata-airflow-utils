@@ -6,8 +6,8 @@ title: Utils
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "Do Stuff."
-description: "Do Stuff."
+summary: "General purpose utils functions"
+description: "General purpose utils functions"
 nb_path: "04_utils.ipynb"
 ---
 <!--
@@ -47,9 +47,9 @@ nb_path: "04_utils.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="dest" class="doc_header"><code>dest</code><a href="https://github.com/netdata/netdata_airflow_utils/tree/master/netdata_airflow_utils/utils.py#L13" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dest</code>(<strong><code>destination_dataset_table</code></strong>, <strong><code>prefix_dataset</code></strong>=<em><code>'tmp'</code></em>, <strong><code>return_dataset_only</code></strong>=<em><code>False</code></em>, <strong><code>return_table_only</code></strong>=<em><code>False</code></em>)</p>
+<h4 id="dest" class="doc_header"><code>dest</code><a href="https://github.com/netdata/netdata_airflow_utils/tree/master/netdata_airflow_utils/utils.py#L14" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dest</code>(<strong><code>destination_dataset_table</code></strong>, <strong><code>prefix_dataset</code></strong>=<em><code>'tmp'</code></em>, <strong><code>return_dataset_only</code></strong>=<em><code>False</code></em>, <strong><code>return_table_only</code></strong>=<em><code>False</code></em>)</p>
 </blockquote>
-<p>If AIRFLOW_ENV != PROD then write results to <code>prefix_dataset</code> instead.</p>
+<p>If <code>AIRFLOW_ENV != PROD</code> then write results to <code>prefix_dataset</code> instead.</p>
 <p>:param destination_dataset_table: destination to write results to.
 :return: destination_dataset_table: destination to write results to with prefix added if needed.</p>
 
@@ -74,7 +74,7 @@ nb_path: "04_utils.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="dest_dict" class="doc_header"><code>dest_dict</code><a href="https://github.com/netdata/netdata_airflow_utils/tree/master/netdata_airflow_utils/utils.py#L39" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dest_dict</code>(<strong><code>destination_dataset_table</code></strong>, <strong><code>prefix_dataset</code></strong>=<em><code>'tmp'</code></em>)</p>
+<h4 id="dest_dict" class="doc_header"><code>dest_dict</code><a href="https://github.com/netdata/netdata_airflow_utils/tree/master/netdata_airflow_utils/utils.py#L40" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dest_dict</code>(<strong><code>destination_dataset_table</code></strong>, <strong><code>prefix_dataset</code></strong>=<em><code>'tmp'</code></em>)</p>
 </blockquote>
 <p>Wrapper for <code>dest()</code> but to return as dict.</p>
 
@@ -99,7 +99,7 @@ nb_path: "04_utils.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="sched" class="doc_header"><code>sched</code><a href="https://github.com/netdata/netdata_airflow_utils/tree/master/netdata_airflow_utils/utils.py#L51" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>sched</code>(<strong><code>schedule</code></strong>)</p>
+<h4 id="sched" class="doc_header"><code>sched</code><a href="https://github.com/netdata/netdata_airflow_utils/tree/master/netdata_airflow_utils/utils.py#L52" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>sched</code>(<strong><code>schedule</code></strong>:<code>Any</code>)</p>
 </blockquote>
 <p>If AIRFLOW_ENV != PROD then schedule should be <code>@once</code>.</p>
 <p>:param schedule: schedule for prod.
@@ -118,23 +118,6 @@ nb_path: "04_utils.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">sched</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;@once&#39;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 </div>
     {% endraw %}
