@@ -6,13 +6,18 @@ __all__ = ['make_datahub_lineage_op']
 
 import datahub.emitter.mce_builder as builder
 from datahub_provider.operators.datahub import DatahubEmitterOperator
-from .utils import dest, sched, dest_dict
+from .utils import dest
+from typing import List
 
 
 # Cell
 
 
-def make_datahub_lineage_op(upstream_urns, downstream_urn, task_id=None, datahub_conn_id='datahub_rest_default', env='DEV', source_type='bigquery'):
+def make_datahub_lineage_op(upstream_urns: List[str], downstream_urn: str, task_id: str = None,
+                            datahub_conn_id: str = 'datahub_rest_default', env: str = 'DEV',
+                            source_type: str = 'bigquery') -> DatahubEmitterOperator:
+    """Aims to simplify the creation of a Datahub lineage by returning an initialized `DatahubEmitterOperator`.
+    """
     if task_id is None:
         task_id = f"lineage__{'.'.join(downstream_urn.split('.')[-2:])}"
     return DatahubEmitterOperator(
@@ -25,4 +30,3 @@ def make_datahub_lineage_op(upstream_urns, downstream_urn, task_id=None, datahub
             )
         ],
     )
-

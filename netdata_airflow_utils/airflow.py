@@ -4,10 +4,13 @@ __all__ = ['default_args_builder']
 
 # Cell
 import os
+from typing import Dict, Any
 
 # Cell
 
-def default_args_builder(email_env_var='AIRFLOW_FAILURE_EMAILS'):
+def default_args_builder(email_env_var: str = 'AIRFLOW_FAILURE_EMAILS') -> Dict[str, Any]:
+    """Default args builder for an Airflow DAG.
+    """
     airflow_failure_emails = os.getenv(email_env_var,'your_email@example.com').split(',')
     return {
         "owner": "Airflow",
