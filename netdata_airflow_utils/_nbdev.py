@@ -2,8 +2,7 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"say_hello": "00_core.ipynb",
-         "default_args_builder": "01_airflow.ipynb",
+index = {"default_args_builder": "01_airflow.ipynb",
          "make_table_desc_op": "02_bigquery.ipynb",
          "make_table_schema_update_op": "02_bigquery.ipynb",
          "make_datahub_lineage_op": "03_datahub.ipynb",
@@ -11,8 +10,7 @@ index = {"say_hello": "00_core.ipynb",
          "dest_dict": "04_utils.ipynb",
          "sched": "04_utils.ipynb"}
 
-modules = ["core.py",
-           "airflow.py",
+modules = ["airflow.py",
            "bigquery.py",
            "datahub.py",
            "utils.py"]

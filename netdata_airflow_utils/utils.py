@@ -5,13 +5,14 @@ __all__ = ['dest', 'dest_dict', 'sched']
 # Cell
 
 import os
+from typing import Dict, Any
 
 
 # Cell
 
 
-def dest(destination_dataset_table, prefix_dataset='tmp', return_dataset_only=False, return_table_only=False):
-    """If AIRFLOW_ENV != PROD then write results to `prefix_dataset` instead.
+def dest(destination_dataset_table, prefix_dataset='tmp', return_dataset_only=False, return_table_only=False) -> Dict[str, Any]:
+    """If `AIRFLOW_ENV != PROD` then write results to `prefix_dataset` instead.
 
     :param destination_dataset_table: destination to write results to.
     :return: destination_dataset_table: destination to write results to with prefix added if needed.
@@ -36,7 +37,7 @@ def dest(destination_dataset_table, prefix_dataset='tmp', return_dataset_only=Fa
         return destination_dataset_table
 
 
-def dest_dict(destination_dataset_table, prefix_dataset='tmp'):
+def dest_dict(destination_dataset_table, prefix_dataset='tmp') -> Dict[str, str]:
     """Wrapper for `dest()` but to return as dict.
     """
     destination_dataset_table = dest(destination_dataset_table, prefix_dataset)
@@ -48,7 +49,7 @@ def dest_dict(destination_dataset_table, prefix_dataset='tmp'):
     }
 
 
-def sched(schedule):
+def sched(schedule: Any) -> Any:
     """If AIRFLOW_ENV != PROD then schedule should be `@once`.
 
     :param schedule: schedule for prod.
@@ -61,5 +62,3 @@ def sched(schedule):
         return schedule
     else:
         return '@once'
-
-

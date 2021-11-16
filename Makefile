@@ -2,9 +2,9 @@
 SHELL := /bin/bash
 SRC = $(wildcard ./*.ipynb)
 
-all: netdata-pandas-utils docs
+all: netdata-airflow-utils docs
 
-netdata-pandas-utils: $(SRC)
+netdata-airflow-utils: $(SRC)
 	nbdev_build_lib
 	touch netdata-pandas-utils
 

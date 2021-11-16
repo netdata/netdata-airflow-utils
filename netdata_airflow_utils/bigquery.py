@@ -4,14 +4,17 @@ __all__ = ['make_table_desc_op', 'make_table_schema_update_op']
 
 # Cell
 
-from airflow.providers.google.cloud.operators.bigquery import BigQueryUpdateTableSchemaOperator, BigQueryUpdateTableOperator
-from .utils import dest, dest_dict
+from typing import List
+from airflow.providers.google.cloud.operators.bigquery import BigQueryUpdateTableSchemaOperator, \
+    BigQueryUpdateTableOperator
+from .utils import dest_dict
 
 
 # Cell
 
-def make_table_desc_op(destination_table, description, task_id=None):
-
+def make_table_desc_op(destination_table: str, description: str,
+                       task_id: str = None) -> BigQueryUpdateTableOperator:
+    """Creates an `BigQueryUpdateTableOperator` in order to update table's description."""
     if task_id is None:
         task_id = f"description__{'.'.join(destination_table.split('.')[-2:])}"
 
@@ -24,9 +27,11 @@ def make_table_desc_op(destination_table, description, task_id=None):
         },
     )
 
+# Cell
 
-def make_table_schema_update_op(destination_table, schema, task_id=None):
-
+def make_table_schema_update_op(destination_table: str, schema: List[List[str]],
+                                task_id: str = None) -> BigQueryUpdateTableSchemaOperator:
+    """Creates an `BigQueryUpdateTableSchemaOperator` in order to update schema's fields"""
     if task_id is None:
         task_id = f"schema__{'.'.join(destination_table.split('.')[-2:])}"
 
@@ -36,4 +41,3 @@ def make_table_schema_update_op(destination_table, schema, task_id=None):
         table_id=dest_dict(destination_table)['tableId'],
         schema_fields_updates=[{'name': s[0], 'description': s[1]} for s in schema]
     )
-
